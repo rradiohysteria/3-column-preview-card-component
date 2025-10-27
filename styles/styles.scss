@@ -1,8 +1,146 @@
 @use 'variables' as v;
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Lexend+Deca:wght@100..900&display=swap');
 
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin text-sm {
+    font-family: "Lexend Deca", sans-serif;
+    font-weight: 400;
+    font-size: 0.938rem;
+    line-height: 1.65;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background-color: v.$gray-100;
+    letter-spacing: 0rem;
+    @include flex-center;
+}
+
+main {
+    @include flex-center;
+    flex-direction: column;
+    margin: 4rem auto;
+}
+
+.col {
+    width: 90%;
+    padding: v.$spacing-600;
+    @include flex-column;
+    gap: v.$spacing-400;
+    color: v.$gray-100;
+    min-height: 31rem;
+
+    img {
+        height: 2.5rem;
+        width: 4rem;
+    }
+
+    h1 {
+        font-family: "Big Shoulders", sans-serif;
+        font-weight: 700;
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+
+    p {
+        @include text-sm;
+        opacity: 0.75;
+    }
+    
+    .card-content {
+        @include flex-column;
+        gap: v.$spacing-300;
+        align-items: flex-start;
+        flex-grow: 1;
+
+        div {
+            @include flex-column;
+            gap: v.$spacing-300;
+        }
+    }
+
+    button {
+        border: none;
+        background-color: v.$gray-100;
+        padding: v.$spacing-100 v.$spacing-400;
+        border-radius: 1.5rem;
+        @include text-sm;
+        margin-top: auto;
+    }
+}
+
+.col-1 {
+    background-color: v.$gold-500;
+    border-radius: 0.5rem 0.5rem 0 0;
+
+    button {
+        color: v.$gold-500;
+    }
+}
+
+.col-2 {
+    background-color: v.$cyan-800;
+
+    button {
+        color: v.$cyan-800;
+    }
+}
+
+.col-3 {
+    background-color: v.$green-950;
+    border-radius: 0 0 0.5rem 0.5rem;
+
+    button {
+        color: v.$green-950;
+    }
+}
+
+@media screen and (min-width: v.$breakpoint-tablet) {
+    .col {
+        width: 75%;
+        padding: v.$spacing-600 v.$spacing-1000;
+    }
+}
+
+@media screen and (min-width: v.$breakpoint-laptop) {
+
+    main {
+        flex-direction: row;
+        width: 60%;
+        align-items: stretch;
+    }
+
+    .col {
+        margin: 0;
+        padding: v.$spacing-600;
+        width: 100%;
+    }
+
+    .card-content {
+        gap: v.$spacing-1000;
+    }
+
+    .col-1 {
+        border-radius: 0.5rem 0 0 0.5rem;
+    }
+
+    .col-3 {
+        border-radius: 0 0.5rem 0.5rem 0;
+    }
 }
