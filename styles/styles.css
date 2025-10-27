@@ -71,6 +71,11 @@ main {
   line-height: 1.65;
   margin-top: auto;
 }
+.col button:hover {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+}
 
 .col-1 {
   background-color: #e28625;

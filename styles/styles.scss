@@ -82,6 +82,12 @@ main {
         border-radius: 1.5rem;
         @include text-sm;
         margin-top: auto;
+
+        &:hover {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
     }
 }
 
